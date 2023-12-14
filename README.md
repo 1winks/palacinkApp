@@ -9,3 +9,5 @@ poloziti predmet challenge (IMPOSSIBLE)
 Pullajte prije svakog radnog sessiona i commita neda mi se fixat git probleme
 
 Dobro bi bilo i provjeriti kad radimo na istim mjestima fileova prije commitanja
+
+Also sve radimo na main branchu jer ce vam bog ono drugo organizirat
