@@ -1,6 +1,7 @@
-checkout develop za rad ovdje
+osim ovog filea
 
 jedan Backend folder
-jedan Frontend folder
+ -> tu radimo 113 i ja
 
-nista vise
+jedan Frontend folder
+ -> tu radi 2
