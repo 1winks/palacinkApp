@@ -1,2 +1,6 @@
 checkout develop za rad ovdje
 
+jedan Backend folder
+jedan Frontend folder
+
+nista vise
