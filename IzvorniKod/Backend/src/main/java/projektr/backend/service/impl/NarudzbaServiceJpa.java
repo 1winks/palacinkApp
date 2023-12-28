@@ -6,7 +6,6 @@ import org.springframework.util.Assert;
 import projektr.backend.dao.NarudzbaRepository;
 import projektr.backend.domain.Narudzba;
 import projektr.backend.service.NarudzbaService;
-
 import java.util.List;
 
 @Service

@@ -1,7 +1,6 @@
 package projektr.backend.service;
 
 import projektr.backend.domain.Narudzba;
-
 import java.util.List;
 
 public interface NarudzbaService {

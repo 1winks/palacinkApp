@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import projektr.backend.domain.Narudzba;
 import projektr.backend.service.NarudzbaService;
-
 import java.util.List;
 
 @RestController
