@@ -23,15 +23,11 @@ public class Palacinka {
     @ManyToOne @JoinColumn(name = "narudzba-id")
     private Narudzba narudzba;
 
-    public Long getId() {
-        return id;
-    }
-    public String getImePalacinke() {
-        return imePalacinke;
-    }
-    public float getCijenaPalacinke() {
-        return cijenaPalacinke;
-    }
+    private Palacinka() {}
+
+    public Long getId() {return id;}
+    public String getImePalacinke() {return imePalacinke;}
+    public float getCijenaPalacinke() {return cijenaPalacinke;}
     public Type getTipPalacinke() {
         return tipPalacinke;
     }
@@ -40,5 +36,23 @@ public class Palacinka {
     }
     public Narudzba getNarudzba() {
         return narudzba;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setImePalacinke(String imePalacinke) {
+        this.imePalacinke = imePalacinke;
+    }
+    public void setCijenaPalacinke(float cijenaPalacinke) {
+        this.cijenaPalacinke = cijenaPalacinke;
+    }
+    public void setTipPalacinke(Type tipPalacinke) {
+        this.tipPalacinke = tipPalacinke;
+    }
+    public void setDodatci(Set<Dodatak> dodatci) {
+        this.dodatci = dodatci;
+    }
+    public void setNarudzba(Narudzba narudzba) {
+        this.narudzba = narudzba;
     }
 }

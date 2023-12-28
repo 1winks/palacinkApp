@@ -13,6 +13,8 @@ public class Dodatak {
     @ManyToOne @JoinColumn(name = "palacinka-id")
     private Palacinka palacinka;
 
+    private Dodatak() {}
+
     public Long getId() {
         return id;
     }
@@ -21,6 +23,18 @@ public class Dodatak {
     }
     public float getCijenaDodatka() {
         return cijenaDodatka;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setNazivDodatka(String nazivDodatka) {
+        this.nazivDodatka = nazivDodatka;
+    }
+    public void setCijenaDodatka(float cijenaDodatka) {
+        this.cijenaDodatka = cijenaDodatka;
+    }
+    public void setPalacinka(Palacinka palacinka) {
+        this.palacinka = palacinka;
     }
     public Palacinka getPalacinka() {
         return palacinka;
