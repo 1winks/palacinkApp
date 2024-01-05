@@ -1,6 +1,7 @@
 package projektr.backend.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import projektr.backend.domain.Palacinka;
 import projektr.backend.service.PalacinkaService;
@@ -20,6 +21,7 @@ public class PalacinkaController {
     }
 
     @PostMapping("/add")
+    @Secured("ROLE_ADMIN")
     public Palacinka createPalacinka(@RequestBody Palacinka palacinka) {
         return palacinkaService.createPalacinka(palacinka);
     }

@@ -1,6 +1,7 @@
 package projektr.backend.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import projektr.backend.domain.Narudzba;
 import projektr.backend.service.NarudzbaService;
@@ -19,6 +20,7 @@ public class NarudzbaController {
     }
 
     @PostMapping("/add")
+    @Secured("ROLE_ADMIN")
     public Narudzba createNarudzba(@RequestBody Narudzba narudzba) {
         return narudzbaService.createNarudzba(narudzba);
     }

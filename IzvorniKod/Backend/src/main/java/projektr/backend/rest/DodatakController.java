@@ -1,6 +1,7 @@
 package projektr.backend.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import projektr.backend.domain.Dodatak;
 import projektr.backend.service.DodatakService;
@@ -20,6 +21,7 @@ public class DodatakController {
     }
 
     @PostMapping("/add")
+    @Secured("ROLE_ADMIN")
     public Dodatak createDodatak(@RequestBody Dodatak dodatak) {
         return dodatakService.createDodatak(dodatak);
     }
