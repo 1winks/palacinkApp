@@ -12,6 +12,8 @@ public class Dodatak {
     private float cijenaDodatka;
     @ManyToOne @JoinColumn(name = "palacinka-id")
     private Palacinka palacinka;
+    @ManyToOne @JoinColumn(name = "ponuda-id")
+    private Ponuda ponuda;
 
     private Dodatak() {}
 
@@ -38,5 +40,11 @@ public class Dodatak {
     }
     public Palacinka getPalacinka() {
         return palacinka;
+    }
+    public Ponuda getPonuda() {
+        return ponuda;
+    }
+    public void setPonuda(Ponuda ponuda) {
+        this.ponuda = ponuda;
     }
 }

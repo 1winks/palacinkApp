@@ -6,7 +6,6 @@ import org.springframework.util.Assert;
 import projektr.backend.dao.PalacinkaRepository;
 import projektr.backend.domain.Palacinka;
 import projektr.backend.service.PalacinkaService;
-
 import java.util.List;
 
 @Service
