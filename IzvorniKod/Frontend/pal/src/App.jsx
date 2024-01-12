@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Register from './components/Register.jsx';
-import Login from './components/login.jsx';
+import Login from './components/Login.jsx';
 import HomePage from './HomePage.jsx';
 import Cookies from 'js-cookie';
 

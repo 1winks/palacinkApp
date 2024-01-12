@@ -23,7 +23,7 @@ function Login(props) {
         };
 
         try {
-            const response = await fetch('/api/login', options);
+            const response = await fetch('http://localhost:8080/login', options);
             if (response.ok) {
                 Cookies.set('user', 'authenticated');
                 localStorage.setItem('username', username.toLowerCase());
