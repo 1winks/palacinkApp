@@ -18,6 +18,8 @@ import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
 import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+
 import javax.servlet.http.HttpServletResponse;
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -33,7 +35,8 @@ public class WebSecurityBasic {
                 .formLogin(withDefaults())
                 .httpBasic(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(withDefaults()); // New way to configure CORS
+                .cors(configurer -> configurer
+                        .configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()));
         return http.build();
     }
 
@@ -64,7 +67,8 @@ public class WebSecurityBasic {
                         .logoutSuccessHandler((request, response, authentication) ->
                                 response.setStatus(HttpStatus.NO_CONTENT.value())))
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(withDefaults()); // New way to configure CORS
+                .cors(configurer -> configurer
+                        .configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()));
         return http.build();
     }
 
@@ -76,7 +80,8 @@ public class WebSecurityBasic {
                 .securityMatcher(PathRequest.toH2Console())
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers((headers) -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
-                .cors(withDefaults()); // New way to configure CORS
+                .cors(configurer -> configurer
+                        .configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()));
         return http.build();
     }
 }
