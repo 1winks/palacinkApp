@@ -33,6 +33,8 @@ public class WebSecurityBasic {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.applyPermitDefaultValues();
         corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Set the allowed origin
+        corsConfiguration.addAllowedMethod("*");
+        corsConfiguration.addAllowedHeader("*");
         corsConfiguration.setAllowCredentials(true);
         return request -> corsConfiguration;
     }
