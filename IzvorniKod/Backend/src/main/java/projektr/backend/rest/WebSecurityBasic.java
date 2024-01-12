@@ -20,7 +20,6 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
-
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
@@ -34,6 +33,7 @@ public class WebSecurityBasic {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.applyPermitDefaultValues();
         corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Set the allowed origin
+        corsConfiguration.setAllowCredentials(true);
         return request -> corsConfiguration;
     }
 
