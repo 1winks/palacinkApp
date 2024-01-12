@@ -32,13 +32,12 @@ public class WebSecurityBasic {
     private CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.applyPermitDefaultValues();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Set the allowed origin
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE")); // Specify allowed methods
-        corsConfiguration.setAllowedHeaders(Arrays.asList("*")); // Specify allowed headers
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+        corsConfiguration.setAllowedHeaders(Arrays.asList("*"));
         return request -> corsConfiguration;
     }
-
 
     @Bean
     @Profile("basic-security")
