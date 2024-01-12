@@ -15,7 +15,7 @@ public class Dodatak {
     @ManyToOne @JoinColumn(name = "ponuda-id")
     private Ponuda ponuda;
 
-    private Dodatak() {}
+    public Dodatak() {}
 
     public Long getId() {
         return id;

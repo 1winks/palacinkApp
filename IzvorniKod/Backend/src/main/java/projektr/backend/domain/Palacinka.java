@@ -23,7 +23,7 @@ public class Palacinka {
     @ManyToOne @JoinColumn(name = "narudzba-id")
     private Narudzba narudzba;
 
-    private Palacinka() {}
+    public Palacinka() {}
 
     public Long getId() {return id;}
     public String getImePalacinke() {return imePalacinke;}

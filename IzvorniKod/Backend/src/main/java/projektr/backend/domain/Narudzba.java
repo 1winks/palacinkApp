@@ -20,7 +20,7 @@ public class Narudzba {
     @Column(nullable = true)
     private String adresa;
 
-    private Narudzba() {}
+    public Narudzba() {}
 
     public Long getId() {
         return id;

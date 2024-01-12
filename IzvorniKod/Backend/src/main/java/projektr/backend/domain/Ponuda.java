@@ -16,7 +16,7 @@ public class Ponuda {
     @OneToMany(mappedBy = "ponuda")
     private Set<Dodatak> dodatci;
 
-    private Ponuda() {}
+    public Ponuda() {}
 
     public void setId(Long id) {
         this.id = id;

@@ -10,14 +10,18 @@ public class Korisnik {
     private Long id;
     @Column(nullable = false, unique = true)
     private String username, email, kucnaAdresa, brojTelefona;
+    @Column(nullable = false)
+    private String password;
+
     @OneToMany(mappedBy = "korisnik")
     private Set<Narudzba> narudzbe;
 
-    private Korisnik() {}
+    public Korisnik() {}
 
     public Long getId() {
         return id;
     }
+
     public String getUsername() {
         return username;
     }
@@ -50,5 +54,11 @@ public class Korisnik {
     }
     public void setNarudzbe(Set<Narudzba> narudzbe) {
         this.narudzbe = narudzbe;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
