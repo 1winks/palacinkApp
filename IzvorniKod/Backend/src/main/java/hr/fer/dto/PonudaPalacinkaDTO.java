@@ -1,4 +1,4 @@
 package hr.fer.dto;
 
-public class PonudaDTO {
+public class PonudaPalacinkaDTO {
 }

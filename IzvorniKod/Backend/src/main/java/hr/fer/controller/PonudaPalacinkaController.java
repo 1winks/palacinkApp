@@ -8,8 +8,8 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/resursi/ponude")
-public class PonudaController {
+@RequestMapping("/api/resursi/ponude/palacinke")
+public class PonudaPalacinkaController {
 
     @Autowired
     private PonudaPalacinkaService ponudaPalacinkaService;

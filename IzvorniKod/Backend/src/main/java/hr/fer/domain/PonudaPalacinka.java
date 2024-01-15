@@ -3,24 +3,23 @@ package hr.fer.domain;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name = "ponuda", schema = "public")
-public class Ponuda {
+@Table(name = "ponudaPalacinka", schema = "public")
+public class PonudaPalacinka {
     @Id @GeneratedValue
     private Long id;
 
     @Column(nullable = false)
-    private String imePonude;
+    private String imePonudePalacinke;
 
     @Column(nullable = false)
-    private float cijenaPonude;
+    private float cijenaPonudePalacinke;
 
-    // dodaci
+    // ponuda dodaci
 
 }

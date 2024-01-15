@@ -1,2 +1,4 @@
-package hr.fer.dto;public class PonudaDodatakaDTO {
+package hr.fer.dto;
+
+public class PonudaDodaciDTO {
 }

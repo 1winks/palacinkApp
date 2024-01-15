@@ -2,13 +2,13 @@ package hr.fer.service.impl;
 
 import hr.fer.domain.PonudaPalacinka;
 import hr.fer.repository.PonudaPalacinkaRepository;
-import hr.fer.service.PonudaService;
+import hr.fer.service.PonudaPalacinkaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import java.util.List;
 @Service
-public class PonudaServiceJpa implements PonudaService {
+public class PonudaPalacinkaServiceJpa implements PonudaPalacinkaService {
 
     @Autowired
     private PonudaPalacinkaRepository ponudaPalacinkaRepo;
@@ -20,9 +20,9 @@ public class PonudaServiceJpa implements PonudaService {
 
     @Override
     public PonudaPalacinka createPonuda(PonudaPalacinka ponudaPalacinka) {
-        Assert.notNull(ponudaPalacinka, "Ponuda must be given");
+        Assert.notNull(ponudaPalacinka, "PonudaPalacinka must be given");
         Assert.isNull(ponudaPalacinka.getId(),
-                "Ponuda ID must be null, not " + ponudaPalacinka.getId()
+                "PonudaPalacinka ID must be null, not " + ponudaPalacinka.getId()
         );
         return ponudaPalacinkaRepo.save(ponudaPalacinka);
     }
