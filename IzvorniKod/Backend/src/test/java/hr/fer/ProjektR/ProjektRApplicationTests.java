@@ -1,10 +1,10 @@
-package hr.fer.ProjektMornar;
+package hr.fer.ProjektR;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjektMornarApplicationTests {
+class ProjektRApplicationTests {
 
 	@Test
 	void contextLoads() {

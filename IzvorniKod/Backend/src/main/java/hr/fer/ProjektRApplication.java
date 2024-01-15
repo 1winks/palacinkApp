@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjektMornarApplication {
+public class ProjektRApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjektMornarApplication.class, args);
-		System.out.println("running");
+		SpringApplication.run(ProjektRApplication.class, args);
+		System.out.println("\nRunning\n");
 	}
 
 }

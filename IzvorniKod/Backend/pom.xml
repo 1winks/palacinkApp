@@ -11,7 +11,7 @@
 	<groupId>Projekt</groupId>
 	<artifactId>projekt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Mornar</name>
+	<name>ProjektR</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>16</java.version>
