@@ -2,7 +2,6 @@ package hr.fer.entity.auth;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
 import javax.persistence.*;
 
 @Data
