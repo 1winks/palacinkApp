@@ -21,7 +21,7 @@ public class Dodatak {
     @Column(nullable = false)
     private float cijenaDodatka;
 
-    // palacinka
-
-    // ponuda
+    @ManyToOne
+    @JoinColumn(name = "palacinka_id")
+    private Palacinka palacinka;
 }

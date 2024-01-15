@@ -3,6 +3,8 @@ package hr.fer.domain;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,7 +12,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "palacinka", schema = "public")
 public class Palacinka {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -25,7 +28,10 @@ public class Palacinka {
     @Enumerated(EnumType.STRING)
     private Type tipPalacinke;
 
-    // narudzba
+    @ManyToOne
+    @JoinColumn(name = "narudzba_id")
+    private Narudzba narudzba;
 
-    // dodaci
+    @OneToMany(mappedBy = "palacinka")
+    private Set<Dodatak> dodaci;
 }

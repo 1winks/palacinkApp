@@ -1,8 +1,6 @@
 package hr.fer.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 
@@ -11,10 +9,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name = "ponudaDodaci", schema = "public")
+@Table(name = "ponudaDod", schema = "public")
 public class PonudaDodaci {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -22,5 +20,4 @@ public class PonudaDodaci {
 
     @Column(nullable = false)
     private float cijenaPonudeDodatka;
-
 }
