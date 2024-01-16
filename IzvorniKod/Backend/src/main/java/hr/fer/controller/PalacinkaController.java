@@ -1,6 +1,7 @@
 package hr.fer.controller;
 
 import hr.fer.domain.Palacinka;
+import hr.fer.dto.PalacinkaDTO;
 import hr.fer.service.PalacinkaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class PalacinkaController {
     }
 
     @PostMapping("/add")
-    public Palacinka createPalacinka(@RequestBody Palacinka palacinka) {
+    public Palacinka createPalacinka(@RequestBody PalacinkaDTO palacinka) {
         return palacinkaService.createPalacinka(palacinka);
     }
 }

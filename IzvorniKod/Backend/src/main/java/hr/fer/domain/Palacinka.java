@@ -1,8 +1,13 @@
 package hr.fer.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -16,22 +21,17 @@ public class Palacinka {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String imePalacinke;
 
-    @Column(nullable = false)
     private float cijenaPalacinke;
-    public enum Type {
-        NORMAL,
-        CUSTOM;
-    }
-    @Enumerated(EnumType.STRING)
-    private Type tipPalacinke;
+
+    private boolean customPalacinka;
+
+    @OneToMany(mappedBy = "palacinka", cascade = CascadeType.ALL)
+    private Set<PalacinkaDodatak> palacinkaDodaci = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "narudzba_id")
     private Narudzba narudzba;
-
-    @OneToMany(mappedBy = "palacinka")
-    private Set<Dodatak> dodaci;
 }

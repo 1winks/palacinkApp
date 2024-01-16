@@ -1,6 +1,8 @@
 package hr.fer.service.impl;
 
 import hr.fer.domain.Dodatak;
+import hr.fer.domain.Palacinka;
+import hr.fer.dto.DodatakDTO;
 import hr.fer.repository.DodatakRepository;
 import hr.fer.service.DodatakService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +19,10 @@ public class DodatakServiceJpa implements DodatakService {
     }
 
     @Override
-    public Dodatak createDodatak(Dodatak dodatak) {
-        Assert.notNull(dodatak, "Dodatak must be given");
-        Assert.isNull(dodatak.getId(),
-                "Dodatak ID must be null, not " + dodatak.getId()
-        );
+    public Dodatak createDodatak(DodatakDTO dodatakDTO) {
+        Dodatak dodatak = new Dodatak();
+        dodatak.setNazivDodatka(dodatakDTO.getNazivDodatka());
+        dodatak.setCijenaDodatka(dodatakDTO.getCijenaDodatka());
         return dodatakRepo.save(dodatak);
     }
 }

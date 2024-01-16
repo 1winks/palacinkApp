@@ -1,6 +1,8 @@
 package hr.fer.controller;
 
 import hr.fer.domain.Dodatak;
+import hr.fer.domain.Palacinka;
+import hr.fer.dto.DodatakDTO;
 import hr.fer.service.DodatakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,7 @@ public class DodatakController {
     }
 
     @PostMapping("/add")
-    public Dodatak createDodatak(@RequestBody Dodatak dodatak) {
+    public Dodatak createDodatak(@RequestBody DodatakDTO dodatak) {
         return dodatakService.createDodatak(dodatak);
     }
 }
