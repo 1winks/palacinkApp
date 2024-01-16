@@ -6,11 +6,13 @@ import Register from './components/Register.jsx';
 import Login from './components/Login.jsx';
 import HomePage from './HomePage.jsx';
 import Cookies from 'js-cookie';
-
-
+import AddDodatak from './components/AddDodatak.jsx';
+import AddPancake from "./components/AddPancake";
+import Ponuda from "./components/Ponuda";
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const userRole = localStorage.getItem('userRole');
 
     useEffect(() => {
         const userCookie = Cookies.get('user');
@@ -24,21 +26,12 @@ const App = () => {
     };
 
     const handleLogout = () => {
-        fetch("/api/logout", {
-            method: 'POST',
-            credentials: 'include',
-        })
-            .then(response => {
-                if (response.ok) {
-                    localStorage.removeItem('username');
-                    localStorage.removeItem('name');
-                    Cookies.remove('user');
-                    setIsLoggedIn(false);
-                }
-            })
-            .catch(error => {
-                console.error('Logout error:', error);
-            });
+        localStorage.removeItem('username');
+        localStorage.removeItem('name');
+        localStorage.removeItem('userRole');
+        Cookies.remove('user');
+        setIsLoggedIn(false);
+        window.location.replace('/');
     };
 
     return (
@@ -51,6 +44,9 @@ const App = () => {
                 />
                 {!isLoggedIn && <Route path="/register" element={<Register />} />}
                 {!isLoggedIn && <Route path="/login" element={<Login onLogin={handleLogin} />} />}
+                <Route path="/addDodatak" element={<AddDodatak isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
+                <Route path="/addPancake" element={<AddPancake isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
+                <Route path="/ponuda" element={<Ponuda isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
             </Routes>
         </Router>
     );

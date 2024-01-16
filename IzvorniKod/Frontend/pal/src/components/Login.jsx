@@ -7,7 +7,6 @@ function Login(props) {
     const onLogin = props.onLogin;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [recaptchaValue, setRecaptchaValue] = useState(null);
 
     async function authenticate(e) {
         e.preventDefault();
@@ -28,10 +27,16 @@ function Login(props) {
         try {
             const response = await fetch('http://localhost:8080/api/auth/signin', options);
             if (response.ok) {
+                console.log(response);
                 const data = await response.json();
                 // Store the JWT token in local storage or cookies
                 localStorage.setItem('jwtToken', data.accessToken);
                 alert('Prijava uspješna');
+                const userRole = response.headers.get('X-Role');
+                Cookies.set('user', 'authenticated');
+                localStorage.setItem('username', username.toLowerCase());
+                localStorage.setItem('name', response.headers.get('Name'));
+                localStorage.setItem('userRole', userRole);
                 onLogin();
                 window.location.replace('/');
             } else {

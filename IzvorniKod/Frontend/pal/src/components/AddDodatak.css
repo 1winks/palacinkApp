@@ -80,13 +80,3 @@ a:hover {
     width: 100%;
     max-width: 400px;
 }
-
-/* Header.css additions */
-.Header button {
-    /* Style your toggle button */
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: 10px;
-}
