@@ -18,12 +18,16 @@ const Header = (props) => {
     return (
         <header className="Header">
             {isLoggedIn ? (
-                <div className="Header">
-                    <button onClick={toggleSidebar}>☰</button> {/* Sidebar toggle button */}
-                    {sidebarOpen && <Sidebar onLogout={onLogout} className="open" />}
-                    {/* Render Sidebar conditionally based on state */}
-                    <div className="LoggedIn">Pozdrav, {name}! Ulogirani ste u sustav.</div>
-                    <div className="LoggedIn"><button onClick={onLogout}>Logout</button></div>
+                <div className="Header-Content">
+                    <div className="Sidebar-Toggle">
+                        <button onClick={toggleSidebar}>☰</button>
+                        {/* Sidebar toggle button */}
+                    </div>
+                    {sidebarOpen && <Sidebar onLogout={onLogout} className="open"/>}
+                    <div className="LoggedIn-Info">Pozdrav, {name}! Ulogirani ste u sustav.</div>
+                    <div className="LoggedIn-Actions">
+                        <button onClick={onLogout}>Logout</button>
+                    </div>
                 </div>
             ) : (
                 <div>

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import pancakeBackground from './photos/palacinke.png';
+import './HomePage.css';
 
 const HomePage = (props) => {
     const isLoggedIn = props.isLoggedIn;
@@ -13,28 +15,31 @@ const HomePage = (props) => {
     return (
         <div className="page-container">
             <Header isLoggedIn={isLoggedIn} onLogout={onLogout} />
-            <main className="main-content">
-                {isLoggedIn ? (
-                    <div className="image">
-                        <div className="text">
-                            <h1>Dobrodošli!</h1>
-                            <Link to="/addDodatak"> Dodajte dodatak</Link>
-                            <Link to="/addPancake"> Dodajte palacinku</Link>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="image">
-                        <div className="text">
-                            <h1>Dobrodošli!</h1>
-                            <div>
-                                <Link to="/login"> Prijavite se</Link>.
-                            </div>
-                            <div>
-                                Nemate račun? <Link to="/register">Registrirajte se</Link>.
-                            </div>
-                        </div>
-                    </div>
-                )}
+            <main className="main-content centered"> {/* Apply the centered class to main-content */}
+                <div className="welcome-message">
+                    <h1 className="welcome-title">Dobrodošli!</h1>
+                </div>
+                <div className="auth-buttons">
+                    {isLoggedIn ? (
+                        <>
+                            <Link to="/addDodatak" className="auth-link">
+                                <button className="auth-button">Dodajte dodatak</button>
+                            </Link>
+                            <Link to="/addPancake" className="auth-link">
+                                <button className="auth-button">Dodajte palacinku</button>
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/login" className="auth-link">
+                                <button className="auth-button">Prijava!</button>
+                            </Link>
+                            <Link to="/register" className="auth-link">
+                                <button className="auth-button">Registracija!</button>
+                            </Link>
+                        </>
+                    )}
+                </div>
             </main>
         </div>
     );

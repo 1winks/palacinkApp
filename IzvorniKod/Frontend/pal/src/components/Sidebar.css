@@ -6,8 +6,9 @@
     width: 200px;
     height: 100%;
     background-color: #f4f4f4;
-    padding: 20px;
+
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding-top: 80px;
 }
 
 .sidebar a {
@@ -19,7 +20,8 @@
 }
 
 .sidebar a:hover {
-    background-color: #ddd;
+    background-color: #ffe5d9; /* Change to the color you prefer */
+    color: #6E4C1E; /* Change text color on hover if needed */
 }
 
 .sidebar button {

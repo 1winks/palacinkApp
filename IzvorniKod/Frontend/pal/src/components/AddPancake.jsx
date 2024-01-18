@@ -1,6 +1,7 @@
 import Header from './Header';
 import axios from 'axios';
 import { useState } from "react"; // Ensure you have this CSS file for styling
+import './AddPancake.css';
 
 const AddPancake = (props) => {
     const isLoggedIn = props.isLoggedIn;
@@ -33,7 +34,7 @@ const AddPancake = (props) => {
     }
 
     return (
-        <div className="centered-wrapper">
+        <div className="page-container">
             <Header isLoggedIn={isLoggedIn} onLogout={onLogout} />
             <div className="register-container">
                 <h2>Dodavanje Palacinke</h2>

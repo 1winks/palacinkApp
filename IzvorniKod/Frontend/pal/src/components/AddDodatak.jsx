@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useState} from "react";
 import "./AddDodatak.css";
 
+
 const AddDodatak = (props) => {
 
     const isLoggedIn = props.isLoggedIn;
@@ -36,7 +37,7 @@ const AddDodatak = (props) => {
     }
 
     return (
-        <div className="centered-wrapper">
+        <div className="page-container">
             <Header isLoggedIn={isLoggedIn} onLogout={onLogout} />
             <div className="register-container">
                 <h2>Dodavanje dodatka</h2>
