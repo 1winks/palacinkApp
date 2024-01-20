@@ -32,11 +32,12 @@ function Login(props) {
                 // Store the JWT token in local storage or cookies
                 localStorage.setItem('jwtToken', data.accessToken);
                 alert('Prijava uspješna');
-                const userRole = response.headers.get('X-Role');
+                const role = data.role;
                 Cookies.set('user', 'authenticated');
                 localStorage.setItem('username', username.toLowerCase());
                 localStorage.setItem('name', response.headers.get('Name'));
-                localStorage.setItem('userRole', userRole);
+                localStorage.setItem('userRole', role);
+                console.log(role);
                 onLogin();
                 window.location.replace('/');
             } else {

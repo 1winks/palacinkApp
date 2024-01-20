@@ -62,7 +62,7 @@ public class AuthController {
 
         User user = service.getUserById(tokenProvider.getUserIdFromJWT(jwt));
 
-        return ResponseEntity.ok(JwtAuthenticationResponse.builder().accessToken(jwt).id(user.getId()).name(user.getName()).email(user.getEmail()).build());
+        return ResponseEntity.ok(JwtAuthenticationResponse.builder().accessToken(jwt).id(user.getId()).name(user.getName()).email(user.getEmail()).role(user.getRole()).build());
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
@@ -85,6 +85,7 @@ public class AuthController {
                 .username(signUpRequest.getUsername())
                 .email(signUpRequest.getEmail())
                 .password(signUpRequest.getPassword())
+                .role("user")
                 .build();
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
