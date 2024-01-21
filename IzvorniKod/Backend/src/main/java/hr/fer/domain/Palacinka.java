@@ -28,6 +28,7 @@ public class Palacinka {
 
     private boolean customPalacinka;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "palacinka", cascade = CascadeType.ALL)
     private Set<PalacinkaDodatak> palacinkaDodaci = new HashSet<>();
 

@@ -1,5 +1,6 @@
 package hr.fer.service.impl;
 
+import hr.fer.domain.Dodatak;
 import hr.fer.domain.Palacinka;
 import hr.fer.domain.PalacinkaDodatak;
 import hr.fer.repository.PalacinkaDodatakRepository;
@@ -24,5 +25,13 @@ public class PalacinkaDodatakServiceJpa implements PalacinkaDodatakService {
         Palacinka palacinka = palacinkaRepo.findById(palacinkaId)
                 .orElseThrow(() -> new RuntimeException("Palacinka not found with ID: " + palacinkaId));
         return palacinkaDodatakRepo.findAllByPalacinka(palacinka);
+    }
+
+    @Override
+    public PalacinkaDodatak createPalacinkaDodatak(Palacinka palacinka, Dodatak dodatak) {
+        PalacinkaDodatak palacinkaDodatak = new PalacinkaDodatak();
+        palacinkaDodatak.setPalacinka(palacinka);
+        palacinkaDodatak.setDodatak(dodatak);
+        return palacinkaDodatakRepo.save(palacinkaDodatak);
     }
 }
