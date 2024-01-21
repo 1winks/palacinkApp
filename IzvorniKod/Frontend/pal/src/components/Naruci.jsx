@@ -6,11 +6,13 @@ import "./Ponuda.css";
 import {Link} from "react-router-dom";
 
 
-function Ponuda( props ) {
+function Naruci( props ) {
     const isLoggedIn = props.isLoggedIn;
     const onLogout = props.onLogout;
     const [palacinke, setPalacinke] = useState([]);
     const [kosarica, setKosarica] = useState([]);
+    const [adresa, setAdresa] = useState('');
+    const [dostava, setDostava] = useState(true);
 
     useEffect(() => {
         const fetchPalacinke = async () => {
@@ -52,7 +54,32 @@ function Ponuda( props ) {
     };
 
     const izracunajUkupnuCijenu = () => {
-        return kosarica.reduce((ukupno, stavka) => ukupno + stavka.cijena * stavka.kolicina, 0);
+        const ukupnaCijena = kosarica.reduce((ukupno, stavka) => ukupno + stavka.cijena * stavka.kolicina, 0);
+        return ukupnaCijena;
+    };
+
+    const posaljiNarudzbu = async () => {
+        try {
+            const narudzba = {
+                ukupnaCijena: izracunajUkupnuCijenu(),
+                adresaDostave: adresa,
+                opcijaDostave: dostava,
+            };
+            console.log("Podaci koji se šalju:", narudzba);
+            const token = localStorage.getItem('jwtToken');
+            await axios.post('http://localhost:8080/api/resursi/narudzbe/add', narudzba, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            alert("Narudžba poslana!");
+            setKosarica([]);
+            setAdresa('');
+        } catch (error) {
+            console.error('Greška prilikom slanja narudžbe:', error);
+            alert("Došlo je do greške prilikom slanja narudžbe.");
+        }
     };
 
 
@@ -77,13 +104,39 @@ function Ponuda( props ) {
                 </ul>
                 <p>Ukupna cijena: {izracunajUkupnuCijenu()} kn</p>
                 {izracunajUkupnuCijenu() > 0 && (
-                    <Link to="/naruci" className="auth-link">
-                        <button className="auth-button">Naručite!</button>
-                    </Link>
+                    <>
+                        <div className="narudzba-forma">
+                            <input
+                                type="text"
+                                placeholder="Unesite adresu dostave"
+                                value={adresa}
+                                onChange={(e) => setAdresa(e.target.value)}
+                            />
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="dostava"
+                                    checked={dostava}
+                                    onChange={() => setDostava(true)}
+                                />
+                                Dostava
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="dostava"
+                                    checked={!dostava}
+                                    onChange={() => setDostava(false)}
+                                />
+                                Preuzimanje
+                            </label>
+                        </div>
+                        <button onClick={posaljiNarudzbu} className="auth-button">Naručite!</button>
+                    </>
                 )}
             </div>
         </div>
     );
 }
 
-export default Ponuda;
+export default Naruci;

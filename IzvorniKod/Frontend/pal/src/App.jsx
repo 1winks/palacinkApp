@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import AddDodatak from './components/AddDodatak.jsx';
 import AddPancake from "./components/AddPancake";
 import Ponuda from "./components/Ponuda";
+import Naruci from "./components/Naruci";
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -47,6 +48,7 @@ const App = () => {
                 <Route path="/addDodatak" element={<AddDodatak isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
                 <Route path="/addPancake" element={<AddPancake isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
                 <Route path="/ponuda" element={<Ponuda isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
+                <Route path="/naruci" element={<Naruci isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
             </Routes>
         </Router>
     );
