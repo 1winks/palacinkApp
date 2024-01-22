@@ -60,11 +60,26 @@ function Naruci( props ) {
 
     const posaljiNarudzbu = async () => {
         try {
+            const pancakeOrder = kosarica.map(item => {
+                // Default to an empty array if dodaci is not defined
+                const dodaciList = item.dodaci || [];
+                return {
+                    imePalacinke: item.ime,
+                    cijenaPalacinke: parseFloat(item.cijena).toFixed(2),
+                    dodaci: dodaciList.map(dodatak => ({
+                        nazivDodatka: dodatak.naziv,
+                        cijenaDodatka: parseFloat(dodatak.cijena).toFixed(2)
+                    }))
+                };
+            });
+
             const narudzba = {
-                ukupnaCijena: izracunajUkupnuCijenu(),
-                adresaDostave: adresa,
-                opcijaDostave: dostava,
+                cijenaNarudzbe: izracunajUkupnuCijenu().toFixed(2),
+                dostava: dostava.toString(),
+                adresa: adresa,
+                palacinke: pancakeOrder
             };
+
             console.log("Podaci koji se šalju:", narudzba);
             const token = localStorage.getItem('jwtToken');
             await axios.post('http://localhost:8080/api/resursi/narudzbe/add', narudzba, {
