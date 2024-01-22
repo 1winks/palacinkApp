@@ -15,10 +15,10 @@ import java.util.Optional;
 public class PalacinkaDodatakServiceJpa implements PalacinkaDodatakService {
 
     @Autowired
-    private PalacinkaRepository palacinkaRepo;
+    private PalacinkaDodatakRepository palacinkaDodatakRepo;
 
     @Autowired
-    private PalacinkaDodatakRepository palacinkaDodatakRepo;
+    private PalacinkaRepository palacinkaRepo;
 
     @Override
     public List<PalacinkaDodatak> getDodatakForPalacinka(Long palacinkaId) {

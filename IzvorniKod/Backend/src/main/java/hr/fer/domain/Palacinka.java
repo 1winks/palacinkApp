@@ -32,7 +32,7 @@ public class Palacinka {
     @OneToMany(mappedBy = "palacinka", cascade = CascadeType.ALL)
     private Set<PalacinkaDodatak> palacinkaDodaci = new HashSet<>();
 
-    @ManyToOne
-    @JoinColumn(name = "narudzba_id")
-    private Narudzba narudzba;
+    @JsonIgnore
+    @OneToMany(mappedBy = "palacinka", cascade = CascadeType.ALL)
+    private Set<PalacinkaNarudzba> palacinkaNarudzbe = new HashSet<>();
 }

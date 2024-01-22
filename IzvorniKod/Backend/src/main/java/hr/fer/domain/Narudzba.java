@@ -1,9 +1,11 @@
 package hr.fer.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hr.fer.entity.auth.User;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -25,10 +27,13 @@ public class Narudzba {
 
     private String adresa;
 
-    @OneToMany(mappedBy = "narudzba")
-    private Set<Palacinka> palacinke;
+    @JsonIgnore
+    @OneToMany(mappedBy = "narudzba", cascade = CascadeType.ALL)
+    private Set<PalacinkaNarudzba> palacinkaNarudzbe = new HashSet<>();
 
+    /*
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+     */
 }
