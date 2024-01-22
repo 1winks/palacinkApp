@@ -21,7 +21,7 @@ public class Palacinka {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String imePalacinke;
 
     private float cijenaPalacinke;
