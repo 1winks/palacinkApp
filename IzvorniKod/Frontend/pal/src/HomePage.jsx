@@ -33,7 +33,7 @@ const HomePage = (props) => {
                                     </Link>
                                 </>
                             )}
-                            <Link to="/ponuda" className="auth-link">
+                            <Link to="/naruci" className="auth-link">
                                 <button className="auth-button">Ponuda</button>
                             </Link>
                         </>

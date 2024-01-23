@@ -101,16 +101,19 @@ const AddPancake = (props) => {
                     </div>
                     <div className="form-group">
                         <label>Dodatci:</label>
-                        {dodatci.map(dodatak => (
-                            <div key={dodatak.id}>
-                                <input
-                                    type="checkbox"
-                                    value={dodatak.id}
-                                    onChange={handleDodatakChange}
-                                />
-                                {dodatak.nazivDodatka}
-                            </div>
-                        ))}
+                        <div className="dodatci-container">
+                            {dodatci.map(dodatak => (
+                                <label key={dodatak.id} className="dodatak">
+                                    <input
+                                        type="checkbox"
+                                        value={dodatak.id}
+                                        onChange={handleDodatakChange}
+                                        className="dodatak-checkbox"
+                                    />
+                                    <span className="dodatak-label">{dodatak.nazivDodatka}</span>
+                                </label>
+                            ))}
+                        </div>
                     </div>
                     <div className="form-group">
                         <button type="submit">Dodaj</button>

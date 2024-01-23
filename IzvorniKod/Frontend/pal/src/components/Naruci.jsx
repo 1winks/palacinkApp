@@ -53,6 +53,24 @@ function Naruci( props ) {
         }
     };
 
+    const povecajKolicinu = (imePalacinke) => {
+        setKosarica(prevKosarica => prevKosarica.map(stavka =>
+            stavka.ime === imePalacinke ? { ...stavka, kolicina: stavka.kolicina + 1 } : stavka
+        ));
+    };
+
+    const smanjiKolicinu = (imePalacinke) => {
+        setKosarica(prevKosarica => {
+            if (prevKosarica.find(stavka => stavka.ime === imePalacinke).kolicina === 1) {
+                return prevKosarica.filter(stavka => stavka.ime !== imePalacinke);
+            } else {
+                return prevKosarica.map(stavka =>
+                    stavka.ime === imePalacinke ? { ...stavka, kolicina: stavka.kolicina - 1 } : stavka
+                );
+            }
+        });
+    };
+
     const izracunajUkupnuCijenu = () => {
         const ukupnaCijena = kosarica.reduce((ukupno, stavka) => ukupno + stavka.cijena * stavka.kolicina, 0);
         return ukupnaCijena;
@@ -114,7 +132,11 @@ function Naruci( props ) {
                 <h3>Košarica</h3>
                 <ul>
                     {kosarica.map(stavka => (
-                        <li key={stavka.ime}>{stavka.ime} - {stavka.kolicina}x - {stavka.cijena} kn</li>
+                        <li key={stavka.ime}>
+                            {stavka.ime} - {stavka.kolicina}x - {stavka.cijena} kn
+                            <button onClick={() => povecajKolicinu(stavka.ime)}>+</button>
+                            <button onClick={() => smanjiKolicinu(stavka.ime)}>-</button>
+                        </li>
                     ))}
                 </ul>
                 <p>Ukupna cijena: {izracunajUkupnuCijenu()} kn</p>
