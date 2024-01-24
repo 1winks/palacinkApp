@@ -1,5 +1,6 @@
 package hr.fer.controller;
 
+import hr.fer.domain.Dodatak;
 import hr.fer.domain.PalacinkaDodatak;
 import hr.fer.service.PalacinkaDodatakService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class PalacinkaDodatakController {
     private PalacinkaDodatakService palacinkaDodatakService;
 
     @GetMapping("/palacinka/{palacinkaId}")
-    public List<PalacinkaDodatak> getDodatakForPalacinka(@PathVariable Long palacinkaId) {
+    public List<Dodatak> getDodatakForPalacinka(@PathVariable Long palacinkaId) {
         return palacinkaDodatakService.getDodatakForPalacinka(palacinkaId);
     }
 }
