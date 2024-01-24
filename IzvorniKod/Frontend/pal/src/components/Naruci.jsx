@@ -139,7 +139,7 @@ function Naruci( props ) {
                         </li>
                     ))}
                 </ul>
-                <p>Ukupna cijena: {izracunajUkupnuCijenu()} kn</p>
+                <p>Ukupna cijena: {izracunajUkupnuCijenu()} eura</p>
                 {izracunajUkupnuCijenu() > 0 && (
                     <>
                         <div className="narudzba-forma">
