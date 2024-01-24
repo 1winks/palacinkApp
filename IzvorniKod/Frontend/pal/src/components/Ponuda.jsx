@@ -16,7 +16,7 @@ function Ponuda( props ) {
         const fetchPalacinke = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get('http://localhost:8080/api/resursi/palacinke', {
+                const response = await axios.get('https://palacinkapp.onrender.com/api/resursi/palacinke', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }

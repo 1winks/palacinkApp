@@ -12,7 +12,7 @@ const PopisNarudzbi = (props) => {
         const fetchNarudzbe = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get('http://localhost:8080/api/resursi/narudzbe', {
+                const response = await axios.get('https://palacinkapp.onrender.com/api/resursi/narudzbe', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -20,14 +20,14 @@ const PopisNarudzbi = (props) => {
 
                 // Fetch pancakes and their toppings for each order
                 const narudzbeWithDetails = await Promise.all(response.data.map(async (narudzba) => {
-                    const pancakesResponse = await axios.get(`http://localhost:8080/api/resursi/palacinke-narudzbe/narudzba/${narudzba.id}`, {
+                    const pancakesResponse = await axios.get(`https://palacinkapp.onrender.com/api/resursi/palacinke-narudzbe/narudzba/${narudzba.id}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
                     });
 
                     const pancakesWithToppings = await Promise.all(pancakesResponse.data.map(async (pancake) => {
-                        const toppingsResponse = await axios.get(`http://localhost:8080/api/resursi/palacinke-dodaci/palacinka/${pancake.id}`, {
+                        const toppingsResponse = await axios.get(`https://palacinkapp.onrender.com/api/resursi/palacinke-dodaci/palacinka/${pancake.id}`, {
                             headers: {
                                 'Authorization': `Bearer ${token}`
                             }

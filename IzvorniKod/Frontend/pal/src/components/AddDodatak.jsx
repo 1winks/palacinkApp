@@ -17,7 +17,7 @@ const AddDodatak = (props) => {
         const token = localStorage.getItem('jwtToken');
         try {
             console.log("Submitting:", nazivDodatka, cijenaDodatka);
-            await axios.post("http://localhost:8080/api/resursi/dodaci/add", {
+            await axios.post("https://palacinkapp.onrender.com/api/resursi/dodaci/add", {
                 nazivDodatka: nazivDodatka,
                 cijenaDodatka: cijenaDodatka,
             }, {
