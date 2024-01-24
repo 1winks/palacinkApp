@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from "./Header";
 import axios from "axios";
 import Cookies from "js-cookie";
-import "./Ponuda.css";
+import "./AddPancake.css";
 import {Link} from "react-router-dom";
 
 
@@ -51,6 +51,24 @@ function Naruci( props ) {
             // Ako ne postoji, dodajemo novu stavku u košaricu
             setKosarica([...kosarica, novaStavka]);
         }
+    };
+
+    const povecajKolicinu = (imePalacinke) => {
+        setKosarica(prevKosarica => prevKosarica.map(stavka =>
+            stavka.ime === imePalacinke ? { ...stavka, kolicina: stavka.kolicina + 1 } : stavka
+        ));
+    };
+
+    const smanjiKolicinu = (imePalacinke) => {
+        setKosarica(prevKosarica => {
+            if (prevKosarica.find(stavka => stavka.ime === imePalacinke).kolicina === 1) {
+                return prevKosarica.filter(stavka => stavka.ime !== imePalacinke);
+            } else {
+                return prevKosarica.map(stavka =>
+                    stavka.ime === imePalacinke ? { ...stavka, kolicina: stavka.kolicina - 1 } : stavka
+                );
+            }
+        });
     };
 
     const izracunajUkupnuCijenu = () => {
@@ -105,7 +123,7 @@ function Naruci( props ) {
             <ul className="palacinke-list">
                 {palacinke.map(pancake => (
                     <li key={pancake.id} className="palacinka-item">
-                        {pancake.imePalacinke} - {pancake.cijenaPalacinke} kn
+                        {pancake.imePalacinke} - {pancake.cijenaPalacinke} eura
                         <button onClick={() => dodajUKosaricu(pancake)}>Dodaj u košaricu</button>
                     </li>
                 ))}
@@ -114,7 +132,11 @@ function Naruci( props ) {
                 <h3>Košarica</h3>
                 <ul>
                     {kosarica.map(stavka => (
-                        <li key={stavka.ime}>{stavka.ime} - {stavka.kolicina}x - {stavka.cijena} kn</li>
+                        <li key={stavka.ime}>
+                            {stavka.ime} - {stavka.kolicina}x - {stavka.cijena} eura
+                            <button onClick={() => povecajKolicinu(stavka.ime)}>+</button>
+                            <button onClick={() => smanjiKolicinu(stavka.ime)}>-</button>
+                        </li>
                     ))}
                 </ul>
                 <p>Ukupna cijena: {izracunajUkupnuCijenu()} kn</p>

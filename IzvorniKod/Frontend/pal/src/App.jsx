@@ -10,6 +10,9 @@ import AddDodatak from './components/AddDodatak.jsx';
 import AddPancake from "./components/AddPancake";
 import Ponuda from "./components/Ponuda";
 import Naruci from "./components/Naruci";
+import PopisDodatak from "./components/PopisDodatak";
+import PopisPalacinki from "./components/PopisPalacinki";
+import PopisNarudzbi from "./components/PopisNarudzbi";
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,6 +52,10 @@ const App = () => {
                 <Route path="/addPancake" element={<AddPancake isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
                 <Route path="/ponuda" element={<Ponuda isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
                 <Route path="/naruci" element={<Naruci isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
+                <Route path="/popisDodatak" element={<PopisDodatak isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
+                <Route path="/popisPalacinki" element={<PopisPalacinki isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
+                <Route path="/popisNarudzbi" element={<PopisNarudzbi isLoggedIn={isLoggedIn} onLogout={handleLogout} />} />
+
             </Routes>
         </Router>
     );
