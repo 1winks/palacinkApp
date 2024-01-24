@@ -6,10 +6,6 @@
 }
 
 .register-container {
-    position: absolute; /* Absolute positioning relative to the page-container */
-    top: 50%; /* Position the top edge of the element at the middle of the container */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Offset the element to center it exactly */
     width: 100%; /* Full width */
     max-width: 400px; /* Maximum width of the form */
     padding: 40px;
@@ -17,7 +13,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center; /* Center the text within the container */
-    z-index: 2; /* Ensure the form is above the background image */
+    margin-top: 120px; /* Add some space between the header and the form */
 }
 
 .form-group {
