@@ -20,8 +20,13 @@ public class NarudzbaController {
         return narudzbaService.listAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public Narudzba createNarudzba(@RequestBody NarudzbaDTO narudzba) {
         return narudzbaService.createNarudzba(narudzba);
+    }
+
+    @PostMapping("/add")
+    public Narudzba addNarudzba(@RequestBody NarudzbaDTO narudzba) {
+        return narudzbaService.addNarudzba(narudzba);
     }
 }
