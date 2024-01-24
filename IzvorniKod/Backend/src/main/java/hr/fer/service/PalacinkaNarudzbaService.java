@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PalacinkaNarudzbaService {
 
-    List<PalacinkaNarudzba> getPalacinkaForNarudzba(Long narudzbaId);
+    List<Palacinka> getPalacinkaForNarudzba(Long narudzbaId);
 
     PalacinkaNarudzba createPalacinkaNarudzba(Narudzba narudzba, Palacinka palacinka);
 }
