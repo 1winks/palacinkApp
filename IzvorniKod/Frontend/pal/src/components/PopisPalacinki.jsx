@@ -33,11 +33,11 @@ const PopisPalacinki = (props) => {
             <ul className="palacinke-list">
                 {palacinke.map(pancake => (
                     <li key={pancake.id} className="palacinka-item">
-                        <h3>{pancake.imePalacinke} - {pancake.cijenaPalacinke} kn</h3>
+                        <h3>{pancake.imePalacinke} - {pancake.cijenaPalacinke} eura</h3>
                         <ul>
                             {(pancake.dodaci || []).map(dodatak => (
                                 <li key={dodatak.id}>
-                                    {dodatak.naziv} - {dodatak.cijena} kn
+                                    {dodatak.naziv} - {dodatak.cijena} eura
                                 </li>
                             ))}
                         </ul>

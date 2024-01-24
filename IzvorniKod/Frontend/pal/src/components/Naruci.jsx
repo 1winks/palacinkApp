@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from "./Header";
 import axios from "axios";
 import Cookies from "js-cookie";
-import "./Ponuda.css";
+import "./AddPancake.css";
 import {Link} from "react-router-dom";
 
 
@@ -123,7 +123,7 @@ function Naruci( props ) {
             <ul className="palacinke-list">
                 {palacinke.map(pancake => (
                     <li key={pancake.id} className="palacinka-item">
-                        {pancake.imePalacinke} - {pancake.cijenaPalacinke} kn
+                        {pancake.imePalacinke} - {pancake.cijenaPalacinke} eura
                         <button onClick={() => dodajUKosaricu(pancake)}>Dodaj u košaricu</button>
                     </li>
                 ))}
@@ -133,7 +133,7 @@ function Naruci( props ) {
                 <ul>
                     {kosarica.map(stavka => (
                         <li key={stavka.ime}>
-                            {stavka.ime} - {stavka.kolicina}x - {stavka.cijena} kn
+                            {stavka.ime} - {stavka.kolicina}x - {stavka.cijena} eura
                             <button onClick={() => povecajKolicinu(stavka.ime)}>+</button>
                             <button onClick={() => smanjiKolicinu(stavka.ime)}>-</button>
                         </li>

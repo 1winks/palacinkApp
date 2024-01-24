@@ -43,7 +43,7 @@ const PopisDodatak = (props) => {
                         {dodatci.map((dodatak) => (
                             <tr key={dodatak.id}>
                                 <td>{dodatak.nazivDodatka}</td>
-                                <td>    {parseFloat(dodatak.cijenaDodatka).toFixed(2)} kn</td>
+                                <td>    {parseFloat(dodatak.cijenaDodatka).toFixed(2)} eura</td>
                             </tr>
                         ))}
                         </tbody>

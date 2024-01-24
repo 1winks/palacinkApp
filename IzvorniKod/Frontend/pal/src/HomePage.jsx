@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import axios from 'axios';
 import {Link} from "react-router-dom";
-import pancakeBackground from './photos/palacinke.png';
+import pancakeBackground from './photos/pancake.jpg';
 import './HomePage.css';
 
 const HomePage = (props) => {
@@ -39,11 +39,11 @@ const HomePage = (props) => {
                         </>
                     ) : (
                         <>
-                            <Link to="/login" className="auth-link">
-                                <button className="auth-button">Prijava!</button>
-                            </Link>
                             <Link to="/register" className="auth-link">
                                 <button className="auth-button">Registracija!</button>
+                            </Link>
+                            <Link to="/login" className="auth-link">
+                                <button className="auth-button">Prijava!</button>
                             </Link>
                         </>
                     )}
