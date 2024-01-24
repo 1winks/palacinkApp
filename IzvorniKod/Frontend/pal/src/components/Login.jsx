@@ -25,7 +25,7 @@ function Login(props) {
         };
 
         try {
-            const response = await fetch('http://localhost:8080/api/auth/signin', options);
+            const response = await fetch('https://palacinkapp.onrender.com/api/auth/signin', options);
             if (response.ok) {
                 console.log(response);
                 const data = await response.json();
