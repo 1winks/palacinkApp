@@ -3,13 +3,14 @@ package hr.fer.service.impl;
 import hr.fer.domain.Dodatak;
 import hr.fer.domain.Palacinka;
 import hr.fer.domain.PalacinkaDodatak;
+import hr.fer.repository.DodatakRepository;
 import hr.fer.repository.PalacinkaDodatakRepository;
 import hr.fer.repository.PalacinkaRepository;
 import hr.fer.service.PalacinkaDodatakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PalacinkaDodatakServiceJpa implements PalacinkaDodatakService {
@@ -20,11 +21,23 @@ public class PalacinkaDodatakServiceJpa implements PalacinkaDodatakService {
     @Autowired
     private PalacinkaRepository palacinkaRepo;
 
+    @Autowired
+    private DodatakRepository dodatakRepo;
+
     @Override
-    public List<PalacinkaDodatak> getDodatakForPalacinka(Long palacinkaId) {
+    public List<Dodatak> getDodatakForPalacinka(Long palacinkaId) {
         Palacinka palacinka = palacinkaRepo.findById(palacinkaId)
                 .orElseThrow(() -> new RuntimeException("Palacinka not found with ID: " + palacinkaId));
-        return palacinkaDodatakRepo.findAllByPalacinka(palacinka);
+
+        List<PalacinkaDodatak> radnaLista = palacinkaDodatakRepo.findAllByPalacinka(palacinka);
+        List<Dodatak> listaDodataka = new ArrayList<>();
+
+        for (PalacinkaDodatak palacinkaDodatak:radnaLista) {
+            Dodatak dodatak = dodatakRepo.findByNazivDodatka(palacinkaDodatak.getDodatak().getNazivDodatka());
+            listaDodataka.add(dodatak);
+        }
+
+        return listaDodataka;
     }
 
     @Override

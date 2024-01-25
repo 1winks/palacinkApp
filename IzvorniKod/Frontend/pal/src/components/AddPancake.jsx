@@ -19,7 +19,7 @@ const AddPancake = (props) => {
 
         const fetchDodatci = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/resursi/dodaci', { headers });
+                const response = await axios.get('https://palacinkapp.onrender.com/api/resursi/dodaci', { headers });
                 console.log(response.data);
                 setDodatci(response.data);
             } catch (error) {
@@ -55,7 +55,7 @@ const AddPancake = (props) => {
 
         try {
             console.log("Submitting:", imePalacinke, cijenaPalacinke, selectedDodatciForRequest);
-            await axios.post("http://localhost:8080/api/resursi/palacinke/add", {
+            await axios.post("https://palacinkapp.onrender.com/api/resursi/palacinke/add", {
                 imePalacinke: imePalacinke,
                 cijenaPalacinke: parseFloat(cijenaPalacinke), // Also make sure this is a float if needed
                 dodaci: selectedDodatciForRequest

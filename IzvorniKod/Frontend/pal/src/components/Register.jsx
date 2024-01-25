@@ -25,7 +25,7 @@ function Register() {
             console.log("Submitting:", ime, prezime, email, lozinka);
 
             // Update the request to match your new signup endpoint and data format
-            const response = await axios.post("http://localhost:8080/api/auth/signup", {
+            const response = await axios.post("https://palacinkapp.onrender.com/api/auth/signup", {
                 name: `${ime} ${prezime}`, // Assuming you want to combine first and last name
                 username: email, // Or any username logic you want
                 email: email,

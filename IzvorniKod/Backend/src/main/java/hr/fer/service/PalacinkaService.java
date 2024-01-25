@@ -12,4 +12,6 @@ public interface PalacinkaService {
     List<Palacinka> listAll();
 
     Palacinka createPalacinka(PalacinkaDTO palacinka);
+
+    Palacinka addPalacinka(PalacinkaDTO palacinka);
 }

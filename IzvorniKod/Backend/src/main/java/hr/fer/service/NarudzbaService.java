@@ -9,4 +9,6 @@ public interface NarudzbaService {
     List<Narudzba> listAll();
 
     Narudzba createNarudzba(NarudzbaDTO narudzba);
+
+    Narudzba addNarudzba(NarudzbaDTO narudzba);
 }

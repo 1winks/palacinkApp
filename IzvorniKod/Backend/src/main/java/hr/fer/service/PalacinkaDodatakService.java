@@ -7,7 +7,7 @@ import hr.fer.domain.PalacinkaDodatak;
 import java.util.List;
 
 public interface PalacinkaDodatakService {
-    List<PalacinkaDodatak> getDodatakForPalacinka(Long palacinkaId);
+    List<Dodatak> getDodatakForPalacinka(Long palacinkaId);
 
     PalacinkaDodatak createPalacinkaDodatak(Palacinka palacinka, Dodatak dodatak);
 }

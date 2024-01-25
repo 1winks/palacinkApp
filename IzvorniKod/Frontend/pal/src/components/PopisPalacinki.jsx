@@ -12,12 +12,25 @@ const PopisPalacinki = (props) => {
         const fetchPalacinke = async () => {
             try {
                 const token = localStorage.getItem('jwtToken');
-                const response = await axios.get('http://localhost:8080/api/resursi/palacinke', {
+                const response = await axios.get('https://palacinkapp.onrender.com/api/resursi/palacinke', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                setPalacinke(response.data);
+                const pancakesData = response.data;
+
+                // Fetch toppings for each pancake
+                const pancakesWithToppings = await Promise.all(pancakesData.map(async (pancake) => {
+                    const toppingsResponse = await axios.get(`https://palacinkapp.onrender.com/api/resursi/palacinke-dodaci/palacinka/${pancake.id}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    console.log(toppingsResponse.data);
+                    return {...pancake, dodaci: toppingsResponse.data};
+                }));
+
+                setPalacinke(pancakesWithToppings);
             } catch (error) {
                 console.error('Error fetching pancake data:', error);
             }
@@ -37,7 +50,7 @@ const PopisPalacinki = (props) => {
                         <ul>
                             {(pancake.dodaci || []).map(dodatak => (
                                 <li key={dodatak.id}>
-                                    {dodatak.naziv} - {dodatak.cijena} eura
+                                    {dodatak.nazivDodatka}
                                 </li>
                             ))}
                         </ul>

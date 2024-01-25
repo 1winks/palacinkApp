@@ -22,8 +22,13 @@ public class PalacinkaController {
         return palacinkaService.listAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public Palacinka createPalacinka(@RequestBody PalacinkaDTO palacinka) {
         return palacinkaService.createPalacinka(palacinka);
+    }
+
+    @PostMapping("/add")
+    public Palacinka addPalacinka(@RequestBody PalacinkaDTO palacinka) {
+        return palacinkaService.addPalacinka(palacinka);
     }
 }

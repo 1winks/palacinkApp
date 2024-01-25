@@ -16,7 +16,7 @@ const PopisDodatak = (props) => {
 
         const fetchDodatci = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/resursi/dodaci', { headers });
+                const response = await axios.get('https://palacinkapp.onrender.com/api/resursi/dodaci', { headers });
                 setDodatci(response.data);
             } catch (error) {
                 console.error('Error fetching add-ons:', error);
